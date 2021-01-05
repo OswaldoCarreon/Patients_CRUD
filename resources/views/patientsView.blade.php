@@ -15,7 +15,7 @@
 
     <div class="container">
 
-        <table class="table">
+        <table class="table text-center">
             <thead>
                 <tr>
                     <th scope="col">CURP</th>

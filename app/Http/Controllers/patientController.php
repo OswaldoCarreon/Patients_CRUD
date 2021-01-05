@@ -45,7 +45,7 @@ class patientController extends Controller
     // ------------------------------ Actualizar por ID --------------------------
     public function updatePatientById($id) {// Al dar clic en "Modify" en la lisa de pacientes.
         $res = Patient::findOrFail($id);
-        echo $res;
+        //echo $res;
         return view('updatePatientView', ["patient"=>$res]);
     }
 
