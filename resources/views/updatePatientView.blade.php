@@ -28,9 +28,9 @@
         </div>  
 
 
-        <div class="d-flex mt-5 justify-content-between">
+        <div class="d-flex mt-5 justify-content-center">
             <input class="btn btn-success "type="submit" value="Edit patient">
-            <a class="mx-5 btn btn-danger me-auto" href="/patients">Cancel</a>
+            <a class="mx-2 btn btn-danger me-auto" href="/patients">Cancel</a>
         </div>
         
     </form>

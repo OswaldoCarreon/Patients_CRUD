@@ -3,19 +3,35 @@
 
 @section('content')
 
-<div class="content">
-    <h2>{{$patient->Name. " " . $patient->Lastname}}</h2>
+<div class="container p-5 mt-5">
+   
 
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th scope="col">Name of the patient</th>
+                <th scope="col">Lastname of the patient</th>
+                <th scope="col">CURP of the patient</th>
+                <th scope="col">Last update</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr>
+                <!-- <th scope="row">{{$patient['Name']}}</th> -->
+                <td>{{$patient->Name}}</td>
+                <td>{{$patient->Lastname}}</td>
+                <td>{{$patient->CURP}}</td>
+                <td>{{$patient->updated_at}}</td>
+            </tr>  
+        </tbody>
+    </table>
 
-    <div class="patients-box">
-        <p>Name of the patient: {{ $patient->Name }}</p>
-        <p>Lastname of the patient: {{ $patient->Lastname }}</p>
-        <p>CURP of the patient: {{ $patient->CURP }}</p>
-        <p>Last update: {{ $patient->updated_at }}</p>
+    <div class="d-flex justify-content-center mt-5">
+        <a class="btn btn-secondary" href="/patients">Back</a>
+        <a class="mx-2 btn" href="/">Home</a>
     </div>
-
-    <a href="/patients">Back</a>
-    <a href="/">Home</a>
+    
 </div>
 
 @endsection()
