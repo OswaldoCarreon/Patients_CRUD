@@ -7,7 +7,7 @@
 
     <h2>Edit patient</h2>
 
-    <form class="p-5 needs-validation" action="/patients/{{$patient->id}}" method="POST">
+    <form class="p-5 needs-validation" action="/patients/{{$patient->CURP}}" method="POST">
         @csrf
         <!-- <label for="name">Name</label>
         <input type="text" name="name" placeholder="name"> <br> -->

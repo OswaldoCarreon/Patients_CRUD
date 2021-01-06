@@ -27,7 +27,7 @@
 
 
     <div class="d-flex mt-5 justify-content-center">
-        <form action="/patients/{{$patient->id}}" method="POST"> 
+        <form action="/patients/{{$patient->CURP}}" method="POST"> 
             @csrf
             @method("DELETE")
             <input class="btn btn-success" type="submit" value="DELETE">

@@ -25,7 +25,6 @@ class patientController extends Controller
 
         $newPatient = new Patient();
         $newPatient->Name = $name;
-        $newPatient->Name = $name;
         $newPatient->Lastname = $lastname;
         $newPatient->CURP = $curp;
 
@@ -35,26 +34,30 @@ class patientController extends Controller
 
 
     // ------------------------------- Mostrar por ID --------------------------
-    public function show($id) { //Al dar clic en "See" en la lista de pacientes.
-        $res = Patient::findOrFail($id);
-        //error_log("Error log get by id = ".$res);
-        return view('showPatientView', ["patient"=>$res]);
+    public function show($curp) { //Al dar clic en "See" en la lista de pacientes.
+        $res = Patient::where('CURP',$curp)->first();
+
+        if(!is_null($res)) return view('showPatientView', ["patient"=>$res]);
+    
+        echo "Not found | 404";
     }
     
 
     // ------------------------------ Actualizar por ID --------------------------
-    public function updatePatientById($id) {// Al dar clic en "Modify" en la lisa de pacientes.
-        $res = Patient::findOrFail($id);
-        //echo $res;
-        return view('updatePatientView', ["patient"=>$res]);
+    public function updatePatientById($curp) {// Al dar clic en "Modify" en la lisa de pacientes.
+        $res = Patient::where('CURP',$curp)->first();
+
+        if( !is_null($res) )    return view('updatePatientView', ["patient"=>$res]);
+
+        echo "Not found | 404";
     }
 
-    public function put($id) {// Al dar clic en "Modify" en la lisa de pacientes.
+    public function put($curp) {// Al dar clic en "Edit" en la info del paciente.
         $name = request('name');
         $lastname = request('lastname');
         $curp = request('curp');
 
-        Patient::where('id',$id)->update(['Name'=>$name, 'Lastname'=>$lastname,'CURP'=>$curp]);
+        Patient::where('CURP',$curp)->update(['Name'=>$name, 'Lastname'=>$lastname,'CURP'=>$curp]);
 
         
         return redirect('/patients');
@@ -62,16 +65,20 @@ class patientController extends Controller
     
 
     // ----------------------------- Eliminar por ID
-    public function deletePatient($id){ //View and the question
-        $res = Patient::findOrFail($id);
-        return view('deleteConfirmationView', ["patient"=>$res]);
+    public function deletePatient($curp){ //View and the question
+        $res = Patient::where('CURP',$curp)->first();
+
+        if( !is_null($res) )    return view('deleteConfirmationView', ["patient"=>$res]);
+
+        echo "Not found | 404";
     }
 
-    public function destroy($id) { //Al dar clic en "Delete" en la lista de pacientes.
-        $patient = Patient::findOrFail($id);
-        $patient->delete();
+    public function destroy($curp) { //Al dar clic en "Delete" en la lista de pacientes.
+        $patient = Patient::where('CURP',$curp)->first();
+
+        if( !is_null($patient) )    $patient->delete();
 
         return redirect('patients');
     }
-
+    
 }

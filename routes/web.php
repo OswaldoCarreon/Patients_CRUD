@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\patientController;
 
-Route::get('/', function () { return view('welcome'); }); // Home view
+//Route::get('/', function () { return view('welcome'); }); // Home view
+Route::get('/', function () { return view('homeView'); }); // Home view
 
 Route::get('patients', 'patientController@getAllPatients');  //get all action (Done)
 
@@ -12,15 +13,15 @@ Route::get('patients/create','patientController@create'); //create a patient vie
 Route::post('patients', 'patientController@store');  //Store the patient action with no view (Done)
 
 // --------------------- READ -----------------
-Route::get('patients/{id}', 'patientController@show'); // get patient by id action (Done)
+Route::get('patients/{curp}', 'patientController@show'); // get patient by id action (Done)
 
 // --------------------- DELETE -----------------
-Route::get('patients/{id}/delete', 'patientController@deletePatient'); //confirmation view (done)
-Route::delete('patients/{id}', 'patientController@destroy'); //delete patient action with no view (Done)
+Route::get('patients/{curp}/delete', 'patientController@deletePatient'); //confirmation view (done)
+Route::delete('patients/{curp}', 'patientController@destroy'); //delete patient action with no view (Done)
 
 // --------------------- UPDATE -----------------
-Route::get('patients/{id}/edit', 'patientController@updatePatientById'); // update view (Done)
-Route::post('patients/{id}', 'patientController@put'); //update action with no view (Done)
+Route::get('patients/{curp}/edit', 'patientController@updatePatientById'); // update view (Done)
+Route::post('patients/{curp}', 'patientController@put'); //update action with no view (Done)
 
 
 

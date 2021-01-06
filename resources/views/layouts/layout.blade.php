@@ -20,7 +20,7 @@
             }
         </style>
     </head>
-    <body class="antialiased">
+    <body class="antialiased ">
         @yield('content')
         <footer class="mt-5 d-flex justify-content-center" style="background: #eee">
                 No Mercy Hospital Copyrigth 2020

@@ -33,9 +33,9 @@
                         <th scope="row">{{$patient['CURP']}}</th>
                         <td>{{$patient->Lastname}}</td>
                         <td>{{$patient->Name}}</td>
-                        <td><a class="btn btn-info" href="/patients/{{$patient->id}}"> See</a></td>
-                        <td><a class="btn btn-warning" href="patients/{{$patient->id}}}/edit"> Modify </a></td>
-                        <td><a class="btn btn-danger" href="patients/{{$patient->id}}}/delete"> Delete </a></td>
+                        <td><a class="btn btn-info" href="/patients/{{$patient->CURP}}"> See</a></td>
+                        <td><a class="btn btn-warning" href="patients/{{$patient->CURP}}/edit"> Modify </a></td>
+                        <td><a class="btn btn-danger" href="patients/{{$patient->CURP}}/delete"> Delete </a></td>
                     </tr>
                     
                 @endforeach
