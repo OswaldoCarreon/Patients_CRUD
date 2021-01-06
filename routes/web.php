@@ -2,9 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\patientController;
+use App\Http\Controllers\loginController;
 
-//Route::get('/', function () { return view('welcome'); }); // Home view
 Route::get('/', function () { return view('homeView'); }); // Home view
+//Route::get('/', function () { return view('welcome'); }); // Home view
+
+// --------------------------------------------------------------------------------------------------
+// ------------------------------------------ Log in Roues ----------------------------------------
+// --------------------------------------------------------------------------------------------------
+Route::get('login', 'loginController@login');
+Route::post('login/auth','loginController@loginAuth');
+
+
+Route::get('signup', 'loginController@signup');
+
+
+
+
+// --------------------------------------------------------------------------------------------------
+// ------------------------------------------ Patients Roues ----------------------------------------
+// --------------------------------------------------------------------------------------------------
 
 Route::get('patients', 'patientController@getAllPatients');  //get all action (Done)
 
