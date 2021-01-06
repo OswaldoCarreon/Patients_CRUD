@@ -15,6 +15,7 @@ Route::post('login/auth','loginController@loginAuth');
 
 
 Route::get('signup', 'loginController@signup');
+Route::post('signup/auth','loginController@signupAuth');
 
 
 
