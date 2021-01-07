@@ -4,8 +4,27 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\patientController;
 use App\Http\Controllers\loginController;
 
-Route::get('/', function () { return view('homeView'); }); // Home view
-//Route::get('/', function () { return view('welcome'); }); // Home view
+Route::get('/welcome', function () { 
+    if( session('username') ){
+        return view('welcome'); 
+    } else {
+        return redirect ('/');
+    }
+    
+
+}); // Home view
+
+Route::get('/', function () { 
+    if( session('username') ){
+        return redirect('/welcome');
+
+    } else {
+        echo "No session data";
+        return view('homeView'); 
+    }
+    
+
+}); // Home view
 
 // --------------------------------------------------------------------------------------------------
 // ------------------------------------------ Log in Roues ----------------------------------------
@@ -16,7 +35,6 @@ Route::post('login/auth','loginController@loginAuth');
 
 Route::get('signup', 'loginController@signup');
 Route::post('signup/auth','loginController@signupAuth');
-
 
 
 

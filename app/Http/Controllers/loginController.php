@@ -36,19 +36,26 @@ class loginController extends Controller
 
         echo $username . " " . $pssw;
         
-        $user = Login::where('username','username')->first();
+        $user = Login::where('username',$username)->first();
 
         if( $user == null) { //No existe, entonces si lo puedo registrar
+            echo "$ user = {".$user."}";
             $newUser = new Login();
-
-            $newUser->username = $username;
+            
+            $newUser->username = $username; 
             $newUser->password = md5($pssw);
 
             $newUser->save();
 
+            session(['username'=>$newUser->username]);
+            session(['role'=>'user']);
+
+            return redirect('/');
+
+
         } else {
             echo "User already registered";
-            return redirect('/signup');
+            return redirect('/signup')->with('info','User already registered');
         }
         
         /* if( !is_empty($res) ) {

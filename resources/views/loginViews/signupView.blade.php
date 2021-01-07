@@ -10,6 +10,13 @@
     <form class="p-5 needs-validation" action="/signup/auth" method="POST">
         @csrf
         
+        @if( session('info') )
+            <div class="alert alert-warning">
+                {{ session('info') }}
+            </div>
+
+        @endif
+
         <div class="form-floating mb-3 ">
             <input type="text" class="form-control" name="username" value="" placeholder="username" required>
             <label for="floatingInput" >Username</label>
