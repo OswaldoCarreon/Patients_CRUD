@@ -10,7 +10,7 @@
 
         @if( session('username') )
             <a class="btn my-5 " style="height:1%;" href="">{{ session('username') }}</a>
-            <a class="btn my-5 " style="height:1%;" href="">Log out</a>
+            <a class="btn my-5 " style="height:1%;" href="/logout">Log out</a>
         @else
             <a class="btn my-5 " style="height:1%;" href="">Log in</a>
             <a class="btn my-5 " style="height:1%;" href="">Sign up</a>

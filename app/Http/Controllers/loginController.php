@@ -12,10 +12,10 @@ class loginController extends Controller
     }
     
     public function loginAuth(){
-        /* $username = request('username');
+        $username = request('username');
         $pssw = request('password');
         
-        $res = Login::where('username','username').andWhere('password',(encrypt)$pssw); */
+        $res = Login::where('username',$username).andWhere('password',md5($pssw));
 
         /* if( !is_empty($res) ) {
             return redirect('/home');
@@ -67,12 +67,27 @@ class loginController extends Controller
     }
 
     public function logout(){
-
+        session()->flush();
+        return redirect('/');
     }
 
-    public function isLogged(){
 
+    public function welcome(){
+        if( session('username') ){
+            return view('welcome'); 
+        } else {
+            return redirect ('/');
+        }
+
+    } 
+
+    public function home(){
+        if( session('username') ){
+            return redirect('/welcome');
+    
+        } else {
+            /* echo "No session data"; */
+            return view('homeView'); 
+        }
     }
-
-   
 }
