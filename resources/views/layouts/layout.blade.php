@@ -22,8 +22,8 @@
     </head>
     <body class="antialiased ">
         @yield('content')
-        <footer class="mt-5 d-flex justify-content-center" style="background: #eee">
-                No Mercy Hospital Copyrigth 2020
+        <footer class="p-3 d-flex justify-content-center fixed-bottom" style="background: #171717">
+                <p style="color:white;"> Copyrigth 2020 No Mercy Hospital </p> 
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>

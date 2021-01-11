@@ -15,14 +15,25 @@ class loginController extends Controller
         $username = request('username');
         $pssw = request('password');
         
-        $res = Login::where('username',$username).andWhere('password',md5($pssw));
+        $res = Login::where([
+            ['username',$username],
+            ['password',md5($pssw)]
+        ])->first();
 
-        /* if( !is_empty($res) ) {
-            return redirect('/home');
+        //Jonas
+        //imbossbitch
+
+        if( $res != null ) {
+            //echo $res;
+            
+            session(['username' => $res->username]);
+            session(['role' => $res->role]); 
+            return redirect('/');
         } else {
             echo "User or password incorrect";
-        }*/
-        echo "Auth";
+        }
+        /* echo "RES = {".$res."}";
+        echo "Auth"; */
     }
 
     
