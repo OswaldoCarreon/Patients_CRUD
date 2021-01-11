@@ -6,19 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 class UserRoles extends Migration
 {
+
+    
     /**
      * Run the migrations.
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('user_roles_t', function (Blueprint $table) {
             $table->id();
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('role');
+            $table->string('role')->default('user');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
+        
     }
 
     /**

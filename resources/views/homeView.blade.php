@@ -9,8 +9,8 @@
 
     <div class="d-flex py-auto">
         <h1 class="py-5 me-auto">No Mercy Hospital</h1>
-        <a class="btn my-5 " style="height:1%;" href="">Log in</a>
-        <a class="btn my-5 " style="height:1%;" href="">Sign up</a>
+        <a class="btn my-5 " style="height:1%;" href="/login">Log in</a>
+        <a class="btn my-5 " style="height:1%;" href="/signup">Sign up</a>
     </div>
 
 
